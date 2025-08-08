@@ -1,0 +1,10 @@
+#!/bin/sh
+
+chosen=$(printf "Apagar\nReiniciar\nCerrar Sesión" | rofi -dmenu -i -config ~/.config/rofi/powermenu.rasi)
+
+case "$chosen" in
+  "Apagar") systemctl poweroff ;;
+  "Reiniciar") systemctl reboot ;;
+  "Cerrar Sesión") i3-msg exit ;;
+  *) exit 1 ;;
+esac
